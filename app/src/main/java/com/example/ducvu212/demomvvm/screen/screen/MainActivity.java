@@ -17,12 +17,21 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
+
+    private void init() {
+        initBinding();
+    }
+
+    private void initBinding() {
         MovieRepository movieRepository =
                 MovieRepository.getsInstance(MovieRemoteDataSource.getsInstance());
-        mMainViewModel = new MainViewModel(movieRepository);
+        mMainViewModel = new MainViewModel(this, movieRepository);
         mMainViewModel.setSchedulerProvider(SchedulerProvider.getInstance());
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(mMainViewModel);
+        binding.executePendingBindings();
     }
 
     @Override

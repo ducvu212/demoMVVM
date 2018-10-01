@@ -2,6 +2,7 @@ package com.example.ducvu212.demomvvm.utils.binding;
 
 import android.databinding.BindingAdapter;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 /**
@@ -28,6 +29,7 @@ public final class BindingUtils {
     @BindingAdapter({ "recyclerAdapter" })
     public static void setAdapterForRecyclerView(RecyclerView recyclerView,
             RecyclerView.Adapter adapter) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(adapter);
     }
 }

@@ -20,6 +20,8 @@ import static com.example.ducvu212.demomvvm.data.model.Result.JSONResults.RESULT
 import static com.example.ducvu212.demomvvm.data.model.Result.JSONResults.RESULT_VIDEO;
 import static com.example.ducvu212.demomvvm.data.model.Result.JSONResults.RESULT_VOTE_AVERAGE;
 import static com.example.ducvu212.demomvvm.data.model.Result.JSONResults.RESULT_VOTE_COUNT;
+import static com.example.ducvu212.demomvvm.utils.Constant.BASE_URL_BACKDROP;
+import static com.example.ducvu212.demomvvm.utils.Constant.BASE_URL_POSTER;
 
 /**
  * Created by CuD HniM on 18/09/25.
@@ -37,43 +39,43 @@ public class Result implements Parcelable {
             return new Result[size];
         }
     };
-    @SerializedName(RESULT_VOTE_COUNT)
+    @SerializedName("vote_count")
     @Expose
     private int mVoteCount;
-    @SerializedName(RESULT_ID)
+    @SerializedName("id")
     @Expose
     private int mId;
-    @SerializedName(RESULT_VIDEO)
+    @SerializedName("video")
     @Expose
     private boolean mVideo;
-    @SerializedName(RESULT_VOTE_AVERAGE)
+    @SerializedName("vote_average")
     @Expose
     private double mVoteAverage;
-    @SerializedName(RESULT_TITLE)
+    @SerializedName("title")
     @Expose
     private String mTitle;
-    @SerializedName(RESULT_POPULARITY)
+    @SerializedName("popularity")
     @Expose
     private double mPopularity;
-    @SerializedName(RESULT_POSTER_PATH)
+    @SerializedName("poster_path")
     @Expose
     private String mPosterPath;
-    @SerializedName(RESULT_ORIGINAL_LANGUAGE)
+    @SerializedName("original_language")
     @Expose
     private String mOriginalLanguage;
-    @SerializedName(RESULT_TITLE)
+    @SerializedName("original_title")
     @Expose
     private String mOriginalTitle;
-    @SerializedName(RESULT_BACKDROP_PATH)
+    @SerializedName("backdrop_path")
     @Expose
     private String mBackdropPath;
-    @SerializedName(RESULT_ADULT)
+    @SerializedName("adult")
     @Expose
     private boolean mAdult;
-    @SerializedName(RESULT_OVERVIEW)
+    @SerializedName("overview")
     @Expose
     private String mOverview;
-    @SerializedName(RESULT_RELEASE_DATE)
+    @SerializedName("release_date")
     @Expose
     private String mReleaseDate;
 
@@ -300,7 +302,7 @@ public class Result implements Parcelable {
         }
 
         public Builder mPosterPath(String posterPath) {
-            mPosterPath = posterPath;
+            mPosterPath = BASE_URL_POSTER.concat(posterPath);
             return this;
         }
 
@@ -315,7 +317,7 @@ public class Result implements Parcelable {
         }
 
         public Builder mBackdropPath(String backdropPath) {
-            mBackdropPath = backdropPath;
+            mBackdropPath = BASE_URL_BACKDROP.concat(backdropPath);
             return this;
         }
 

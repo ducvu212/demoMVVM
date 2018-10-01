@@ -10,16 +10,17 @@ import com.example.ducvu212.demomvvm.data.source.remote.config.service.NameServi
 import io.reactivex.Observable;
 import java.util.List;
 
+import static com.example.ducvu212.demomvvm.utils.Constant.DEFAULT_SORT;
+
 /**
  * Created by CuD HniM on 18/09/25.
  */
 public class MovieRemoteDataSource implements MovieDataSource.MovieRemoteDataSource {
 
     private static MovieRemoteDataSource sInstance;
-    private NameApi mNameApi;
 
     public MovieRemoteDataSource(NameApi nameApi) {
-        mNameApi = nameApi;
+        NameApi nameApi1 = nameApi;
     }
 
     public static synchronized MovieRemoteDataSource getsInstance() {
@@ -37,7 +38,7 @@ public class MovieRemoteDataSource implements MovieDataSource.MovieRemoteDataSou
     public Observable<List<Result>> getAllMovie() {
         return ApiClient.getInstance()
                 .create(ApiInterface.class)
-                .getAllMovieGenre(BuildConfig.API_KEY, "popularity.desc")
+                .getAllMovieGenre(BuildConfig.API_KEY, DEFAULT_SORT)
                 .flatMap(movieRespone -> Observable.just(movieRespone.getResults()));
     }
 }
