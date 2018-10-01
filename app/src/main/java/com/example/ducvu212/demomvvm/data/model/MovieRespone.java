@@ -4,28 +4,21 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
-import static com.example.ducvu212.demomvvm.data.model.MovieRespone.JsonMovieRespone.JSON_PAGE;
-import static com.example.ducvu212.demomvvm.data.model.MovieRespone.JsonMovieRespone.JSON_RESULT;
-import static com.example.ducvu212.demomvvm.data.model.MovieRespone.JsonMovieRespone
-        .JSON_TOTAL_PAGE;
-import static com.example.ducvu212.demomvvm.data.model.MovieRespone.JsonMovieRespone
-        .JSON_TOTAL_RESULT;
-
 /**
  * Created by CuD HniM on 18/09/25.
  */
 public class MovieRespone {
 
-    @SerializedName(JSON_RESULT)
+    @SerializedName("results")
     @Expose
     private List<Result> mResults;
-    @SerializedName(JSON_PAGE)
+    @SerializedName("page")
     @Expose
     private Integer mPage;
-    @SerializedName(JSON_TOTAL_PAGE)
+    @SerializedName("total_results")
     @Expose
     private Integer mTotalResults;
-    @SerializedName(JSON_TOTAL_RESULT)
+    @SerializedName("total_pages")
     @Expose
     private Integer mTotalPages;
 
